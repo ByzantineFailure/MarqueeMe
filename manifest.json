@@ -1,0 +1,13 @@
+{
+	"background" : { "scripts" : [ "MarqueeMe.js"] },
+	"content_scripts": [{ "matches": ["*://*/*"], "js": ["jquery-1.11.1.min.js", "onPage.js"]}],
+	"manifest_version": 2,
+	"name": "MarqueeMe",
+	"description": "Why did you install this",
+	"version": "1.0",
+	"permissions" : [ 
+		"contextMenus",
+		"tabs"
+	],
+	"browser_action" : { "default_title" : "Why did you install this" }
+}
