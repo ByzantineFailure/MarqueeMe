@@ -3,4 +3,15 @@ function marqueePage(info, tab) {
 		chrome.tabs.sendRequest(tab.id, {});
 	});
 };
-var contextItem = chrome.contextMenus.create({"title": "Marquee Me!", "onclick": marqueePage });
+
+chrome.storage.local.get(['maliciousMode', 'ninetiesMode'], function(result) {
+	if(!result.maliciousMode) {
+		chrome.storage.local.set({ 'maliciousMode' : false });
+	}
+	if(!result.ninetiesMode) {
+		chrome.storage.local.set({ 'ninetiesMode' : false });
+	}
+	if(!result.maliciousMode) {
+		var contextItem = chrome.contextMenus.create({"title": "Marquee Me!", "onclick": marqueePage });
+	}
+});
